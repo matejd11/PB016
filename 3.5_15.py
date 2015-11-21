@@ -41,7 +41,7 @@ class Graph(object):
             res += str(edge) + " "
         return res
 
-    def depth_first_search(self, graph, start, end, path , limit):
+    def depth_first_search_limit(self, graph, start, end, path , limit):
         if limit <= 0:
             return None
         path = path + [start]
@@ -50,12 +50,14 @@ class Graph(object):
 
         for node in graph.getGraph()[start]:
             if node not in path:
-                res = self.depth_first_search(graph, node, end, path, limit-1)
+                res = self.depth_first_search_limit(graph, node, end, path, limit-1)
                 if res != None:
                     return res
 
 
 def main():
+
+    print("Príklad DFS limit")
 
     g = { "a" : ["b", "c"],
             "b" : ["d", "e", "a"],
@@ -66,7 +68,7 @@ def main():
         }
 
     graph = Graph(g)
-    print(graph.depth_first_search(graph, "a", "e", [], 3))
+    print(graph.depth_first_search_limit(graph, "a", "e", [], 3))
 
 
 if __name__ == '__main__':

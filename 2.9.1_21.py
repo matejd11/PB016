@@ -63,6 +63,7 @@ def main():
         }
 
     graph = Graph(g)
+    print("Príklad na nájdenie cesty z bodu 'a' do bodu 'c'")
     print(str(graph.find_path("a", "c")))
 
 if __name__ == '__main__':

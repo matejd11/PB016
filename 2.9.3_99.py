@@ -86,6 +86,7 @@ def main():
         }
 
     graph = Graph(g)
+    print("Príklad na nájdenie najkratšej ciet z bodu 'a' do bodu 'f'")
     print(graph.find_shortest_path(graph, "a", "f"))
 
 if __name__ == '__main__':

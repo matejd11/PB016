@@ -101,6 +101,7 @@ class Tree:
 
 
 def main():
+    print("Príklad na odoberanie uzlu z binárneho stroma:")
     tree = Tree()
     tree.add(8)
     tree.add(3)

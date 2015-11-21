@@ -58,6 +58,7 @@ class Tree:
 
 
 def main():
+    print("Príklad na tvorbu stromu, hľadania prvku")
     tree = Tree()
     tree.add(3)
     tree.add(7)
@@ -68,13 +69,10 @@ def main():
     tree.add(6)
     tree.add(9)
     tree.add(8)
-    print()
     tree.printTree()
     print()
-    print("3 je na: " + str((tree.find(3)).v))
-    print(tree.find(10))
-    tree.deleteTree()
-    tree.printTree()
+    print("7 je v grafe:", (tree.find(7)) != None)
+    print("10 je v grafe:", (tree.find(10)) != None)
 
 if __name__ == '__main__':
     main()

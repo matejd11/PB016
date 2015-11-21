@@ -5,10 +5,10 @@ class Osoba():
 		self.otec = None
 		self.mama = None
 
-	def pridajOtca(self, otec):
+	def nastavOtca(self, otec):
 		self.otec = otec
 
-	def pridajMamu(self, mama):
+	def nastavMamu(self, mama):
 		self.mama = mama
 		
 	def ziskajRodicov(self):
@@ -36,25 +36,28 @@ def main():
 	pavla = Osoba("pavla")
 	jana = Osoba("jana")
 
-	dana.pridajOtca(milan)
-	petr.pridajOtca(milan)
-	david.pridajOtca(jan)
+	dana.nastavOtca(milan)
+	petr.nastavOtca(milan)
+	david.nastavOtca(jan)
 
-	dana.pridajMamu(pavla)
-	petr.pridajMamu(pavla)
-	david.pridajMamu(jana)
+	dana.nastavMamu(pavla)
+	petr.nastavMamu(pavla)
+	david.nastavMamu(jana)
 
 	vsetci = [dana, petr, david, milan, jan, pavla, jana]
+
+	print("Príklad na ukládanie a hľadanie v rodokmeni. (rodicia, surodenci)")
+	print()
 
 	print("dana.rodicia =>")
 
 	for x in dana.ziskajRodicov():
-		print(x.meno)
+		print(" ",x.meno)
 
 	print("dana.surodenci =>")
 
 	for x in dana.ziskajSurodencov(vsetci):
-		print(x.meno)
+		print(" ",x.meno)
 
 
 if __name__ == '__main__':

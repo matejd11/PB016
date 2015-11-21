@@ -79,6 +79,7 @@ def main():
         }
 
     graph = Graph(g)
+    print("Príklad na nájdenie všetkých ciet z bodu 'a' do bodu 'f'")
     for x in graph.find_all_paths(graph, "a", "f"):
         print(x)
 

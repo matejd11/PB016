@@ -7,8 +7,9 @@ def permutacie(prvky):
                 yield perm[:i] + prvky[0:1] + perm[i:]
 
 def main():
+    print("Príklad výpisu všetkých permutácií prvkov v zozname [1,2,3]:")
     for i in permutacie([1, 2, 3]):
-    	print(i)
+        print(i)
 
 if __name__ == '__main__':
     main()

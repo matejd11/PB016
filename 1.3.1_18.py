@@ -14,7 +14,10 @@ def fib_iter(i):
 def main():
 	# pre veľké čísla
 	# sys.setrecursionlimit(10000)
+	print("Príklad na výpočet fibonaciho postupnosti")
+	print("pomalšia verzia (rekurzívna): fib_rec(27)")
 	print(fib_rec(27))
+	print("rýchlejšia verzia (iteračná): fib_iter(27)")
 	print(fib_iter(27))
 
 if __name__ == '__main__':

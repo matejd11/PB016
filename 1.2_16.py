@@ -10,6 +10,10 @@ def vypis(array, odsadenie = 1):
     return odpoved
 
 def main():
+    print("Príklad na krajší výpis zoznamu.")
+    print("zoznam ['a', 'b', 'c'] sa zobrazí:")
+    print(vypis(['a', 'b', 'c']))
+    print("zoznam: ['a', 'b', ['c1', 'c2', 'c3'], 'd', 'mezi d a e', 'e'] sa zobrazí:")
     print(vypis(['a', 'b', ['c1', 'c2', 'c3'], 'd', 'mezi d a e', 'e']))
 
 if __name__ == '__main__':

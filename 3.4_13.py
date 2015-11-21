@@ -55,6 +55,8 @@ class Graph(object):
 
 def main():
 
+    print("Príklad DFS")
+
     g = { "a" : ["b", "c"],
             "b" : ["d", "e", "a"],
             "c" : ["d", "e", "a"],

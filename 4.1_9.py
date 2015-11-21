@@ -122,6 +122,8 @@ class Graph(object):
 
 def main():
 
+    print("Príklad A*")
+
     g = [
             [0,0,0,0,0,0],
             [0,0,1,1,0,0],
@@ -136,7 +138,6 @@ def main():
     #print()
     #print(b)
 
-    print()
     tmp = [
             [-1,-1,-1,-1,-1,-1],
             [-1,-1,-1,-1,-1,-1],
@@ -154,7 +155,6 @@ def main():
 
     print(graph.cesta((2,1), (2, 5)))
 
-    print()
     tmp = [
             [-1,-1,-1,-1,-1,-1],
             [-1,-1,-1,-1,-1,-1],

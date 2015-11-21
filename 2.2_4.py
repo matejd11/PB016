@@ -18,10 +18,13 @@ def insert(prvok, list):
 
 def main():
     a = [1,2,1,1,2,3,1,1]
+    print("Príklad pridania '1' do zoznamu [1,2,1,1,2,3,1,1]")
     insert(1, a)
     print(a)
+    print("Príklad vymazania jednej '1' do zoznamu")
     delete1(1, a)
     print(a)
+    print("Príklad vymazania vsetkých '1' do zoznamu")
     delete(1, a)
     print(a)
 

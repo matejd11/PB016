@@ -41,7 +41,7 @@ class Graph(object):
             res += str(edge) + " "
         return res
 
-    def bfs(self, graph, start, end):
+    def breadth_first_search(self, graph, start, end):
         queue = []
         queue.append([start])
         while queue:
@@ -56,6 +56,8 @@ class Graph(object):
 
 def main():
 
+    print("Príklad BFS")
+
     g = { "a" : ["b", "c"],
             "b" : ["d", "e", "a"],
             "c" : ["d", "e", "a"],
@@ -65,7 +67,7 @@ def main():
         }
 
     graph = Graph(g)
-    print(graph.bfs(graph, "a", "e"))
+    print(graph.breadth_first_search(graph, "a", "e"))
 
 
 if __name__ == '__main__':

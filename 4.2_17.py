@@ -38,7 +38,6 @@ class Procesors(object):
 
         return last
 
-
     def getLast(self):
         max = 0
         last = Procesor()
@@ -68,31 +67,14 @@ def heur(procesors, tasks):
     return 0
 
 
-def solve(tasks, prereqizits, result = [[], [], []], step = 0, proces = 0):
-    if proces == len(tasks):
-        return result
-    if prereqizits[proces] == []:
-        for x in range(len(result)):
-            if len(result[x]) > step:
-                if (result[x])[step] != None:
-                    step = step +1
-                    print(proces)
-                    print(result)
-            else:
-                for q in range(tasks[proces]):
-                    result[x].append(proces)
-                for i in range(len(prereqizits)):
-                    for j in range(len(prereqizits[i])):
-                        if prereqizits[i][j] == proces:
-                            prereqizits[i].pop(j)
-                break
-    print(prereqizits)
-    result = solve(tasks, prereqizits, result, step, proces+1)
-    return result
-
+def solve(procesors, tasks):
+    while len(tasks) == 0:
+        for task in tasks:
+            if testPrecedence(task, procesors) == True:
+                for procesor in procesors:
+                    if task.time <
 
 def main():
-
     taskstime = [4, 2, 2, 20, 20, 11, 11]
     prereqizits = [[], [], [], ["T1"], ["T1"], ["T4"], ["T1", "T3"]]
 
@@ -107,3 +89,26 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+'''
+ if proces == len(tasks):
+    return result
+if prereqizits[proces] == []:
+    for x in range(len(result)):
+        if len(result[x]) > step:
+            if (result[x])[step] != None:
+                step = step +1
+                print(proces)
+                print(result)
+        else:
+            for q in range(tasks[proces]):
+                result[x].append(proces)
+            for i in range(len(prereqizits)):
+                for j in range(len(prereqizits[i])):
+                    if prereqizits[i][j] == proces:
+                        prereqizits[i].pop(j)
+            break
+print(prereqizits)
+result = solve(tasks, prereqizits, result, step, proces+1)
+return result
+'''
