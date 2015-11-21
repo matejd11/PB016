@@ -1,19 +1,26 @@
-def hanoi(n, source, helper, target):
-    print("hanoi( ", n, source, helper, target, " called")
+def hanoi(n, zaciatocna, cielova, pomocna):
     if n > 0:
-        # move tower of size n - 1 to helper:
-        hanoi(n - 1, source, target, helper)
-        # move disk from source peg to target peg
-        if source[0]:
-            disk = source[0].pop()
-            print("moving " + str(disk) + " from " + source[1] + " to " + target[1])
-            target[0].append(disk)
-        # move tower of size n-1 from helper to target
-        hanoi(n - 1, helper, source, target)
         
-source = ([4,3,2,1], "A")
-target = ([], "B")
-helper = ([], "C")
-hanoi(len(source[0]),source,helper,target)
+        hanoi(n - 1, zaciatocna, pomocna, cielova)
 
-print(source, helper, target)
+        if zaciatocna[0]:
+            disk = zaciatocna[0].pop()
+            print("presúvam " + str(disk) + " z " + zaciatocna[1] + " na " + cielova[1])
+            cielova[0].append(disk)
+
+        hanoi(n - 1, pomocna, cielova, zaciatocna)
+        
+def main():
+    print("Príklad hanojské veže:")
+    zaciatocna = ([3,2,1], "A")
+    cielova = ([], "B")
+    pomocna = ([], "C")
+    
+    print(zaciatocna[0], cielova[0], pomocna[0])
+
+    hanoi(len(zaciatocna[0]), zaciatocna, cielova, pomocna)
+
+    print(zaciatocna[0], cielova[0], pomocna[0])
+
+if __name__ == '__main__':
+    main()
