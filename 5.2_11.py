@@ -13,6 +13,38 @@ class Node():
         for i in self.childs:
             i.printChild(tab+1)
 
+    def printSol(self, sol, tab = 0):
+        if self.name in sol:
+            print("  "*tab + self.name + "*"*(self.typ == "end"))
+            for i in self.childs:
+                i.printSol(sol, tab+1)
+
+def solve(problem, result = []):
+
+    if problem.typ == "end":
+        return True, result + [problem.name]
+
+    if problem.typ == "":
+        return False, []
+
+    if problem.typ == "and":
+        a = []
+        for node in problem.childs:
+            res, ress = solve(node)
+            if res == False:
+                return False, []
+            else:
+                a += ress
+                pass
+        return True, ress + a + [problem.name]
+
+    if problem.typ == "or":
+        for node in problem.childs:
+            res, ress = solve(node)
+            if res == True:
+                return True, ress + [problem.name]
+        return False, []
+
 def main():
     problem = Node("a","or")
     
@@ -38,7 +70,8 @@ def main():
     f.addChild(i)
     f.addChild(h)
 
-    problem.printChild()
+    i, sol = solve(problem)
+    problem.printSol(sol)
 
     
 if __name__ == '__main__':
