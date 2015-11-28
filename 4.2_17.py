@@ -7,30 +7,38 @@ class Task(object):
         self.time = time
         self.precedence = precedence
 
+    def getPossibleTasks(tasks):
+        for task in tasks:
+            #if len(task.precedence) == 0:
+            return task
+        return None
+
+
 class Procesor(object):
-    def __init__(self):
-        super(Task, self).__init__()
+    def __init__(self, i = -1):
+        super(Procesor, self).__init__()
+        self.name = i
         self.task = []
 
     def lastEndTime(self):
         return len(self.task)
 
-    def addWork(task):
+    def addWork(self, task):
         for x in range(task.time):
             self.task.append(task.name)
         
 class Procesors(object):
     def __init__(self, number):
-        super(Task, self).__init__()
+        super(Procesors, self).__init__()
         self.num = number
         self.procs = []
         for i in range(number):
-            procs.append(Procesor())
+            self.procs.append(Procesor(i))
 
     def getNext(self):
-        min = sys.maxint
-        last = Procesor()
-        for proc in delf.procesors:
+        min = self.procs[0].lastEndTime()
+        last = self.procs[0]
+        for proc in self.procs:
             currentTime = proc.lastEndTime()
             if currentTime < min:
                 min = currentTime
@@ -68,11 +76,19 @@ def heur(procesors, tasks):
 
 
 def solve(procesors, tasks):
-    while len(tasks) == 0:
-        for task in tasks:
-            if testPrecedence(task, procesors) == True:
-                for procesor in procesors:
-                    if task.time <
+    #while len(tasks) == 0:
+    #    for task in tasks:
+    #        if testPrecedence(task, procesors) == True:
+    #            for procesor in procesors:
+    #                pass
+
+    while len(tasks) > 0:
+        nextProc = procesors.getNext()
+        nextTask = Task.getPossibleTasks(tasks)
+        if nextTask != None:
+            nextProc.addWork(nextTask)
+            tasks.remove(nextTask)
+
 
 def main():
     taskstime = [4, 2, 2, 20, 20, 11, 11]
@@ -85,6 +101,13 @@ def main():
 
     for x in tasks:
         print(x.name, x.time, x.precedence)
+
+    procesors = Procesors(3)
+
+    solve(procesors, tasks)
+
+    for proc in procesors.procs:
+        print(proc.task)
  
 
 if __name__ == '__main__':
