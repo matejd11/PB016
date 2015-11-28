@@ -19,10 +19,17 @@ def main():
     print("---------")
     print("M O N E Y")
 
+    tmp = set()
+
     for num in permutacie(list(range(10))):
         if sum(num) == add(num):
             if num[0] != 0 and num[4] != 0:
-                print(num)
+                tmp.add(tuple(num[:8]))
+
+    print("(S, E, N, D, M, O, R, Y)")
+
+    for num in tmp:
+        print(num)
 
 if __name__ == '__main__':
     main()
