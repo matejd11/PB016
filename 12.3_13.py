@@ -46,8 +46,12 @@ def sentences():
             yield noun_phrase + " " + verb_phrase
 
 def main():
+    tested_sentence = "a boy sings"
     for sentence in sentences():
-        print(sentence)
+        if tested_sentence == sentence:
+            print("True")
+            quit()
+    print(False)
 
 if __name__ == "__main__":
     main()
