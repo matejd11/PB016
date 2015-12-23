@@ -21,5 +21,5 @@
 * 5.1_5.py - hanojské veže
 * 5.2_11.py - andor graf
 * 6.2_11.py - CPL algebra
-* 12.1_11.py - generovanei slov
+* 12.1_11.py - generovanie slov
 * 12.3_13.py - kontrola slova
